@@ -147,7 +147,52 @@
          </tr>
       
     </table>
+    <h2>Below is a list of all assignments given in November and their due dates.</h2>
+    <div class = "container">
 
+    </div>
+    <script>
+
+      function listCreate(){
+        var assignmentArray = document.getElementsByClassName("assignment");
+        var dueArray = document.getElementsByClassName("due");
+
+        var div = document.getElementsByClassName('container')[0];
+        var tbl = document.createElement('table');
+
+        for(var i = 0; i<assignmentArray.length;i++){
+          var tr = document.createElement('tr');
+
+          var date = dueArray[i].textContent;
+          if(i<2){
+            var Month = "October";
+          }
+          else{
+            var Month = "November";
+          }
+          var td1 = document.createElement('td');
+
+          var td3 = document.createElement('td');
+          td1.appendChild(document.createTextNode(Month+" "+date));
+          td1.style.width='200px';
+          td1.style.borderStyle='none';
+          td3.appendChild(document.createTextNode(assignmentArray[i].textContent));
+          td3.style.width='500px';
+          td1.style.borderStyle='none';
+          tr.appendChild(td1);
+
+          tr.appendChild(td3);
+          tbl.appendChild(tr);
+        }
+        tbl.style.alignContent = "center";
+        div.appendChild(tbl);
+
+      }
+
+      listCreate();
+
+
+    </script>
 
   </body>
 </center>
